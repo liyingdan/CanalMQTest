@@ -1,0 +1,19 @@
+server:
+  port: 8888
+spring:
+    rabbitmq:
+        host: 10.141.162.94
+        port: 5672
+        username: user_lyd
+        password: 1234
+        virtual-host: /vhost_lyd
+        listener:
+            simple:
+                acknowledge-mode: manual
+canal:
+    client:
+        instances:
+            example:
+                host: localhost
+                port: 11111
+                batchSize: 1000

@@ -2,11 +2,11 @@ server:
   port: 8888
 spring:
     rabbitmq:
-        host: 10.141.162.94
+        host: 10.12.41.89
         port: 5672
-        username: user_lyd
-        password: 1234
-        virtual-host: /vhost_lyd
+        username: lyd
+        password: 123456
+        virtual-host: /test
         listener:
             simple:
                 acknowledge-mode: manual
@@ -17,3 +17,12 @@ canal:
                 host: localhost
                 port: 11111
                 batchSize: 1000
+
+#其他配置
+exchangeName: materialActivityTopicExchange
+queueName: materialActivityTopicQueue
+bindingKey: material.confirmed.activity
+
+deadExchangeName: deadMaterialActivityTopicExchange
+deadQueueName: deadMaterialActivityTopicQueue
+deadBindingKey: material.confirmed.activity.dead

@@ -15,8 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 @CanalEventListener
 public class CanalListener {
-    private static final String EXCHANGE_NAME = "materialActivityTopicExchange";
-
     @Autowired
     private Product product;
 
@@ -43,7 +41,7 @@ public class CanalListener {
                         message.setTableName("student");
                         message.setActivityId(activityId);
 
-                        product.sendMessage(EXCHANGE_NAME,"material.confirmed.activity",message);
+                        product.sendActivityModelMessage(message);
                         System.out.println("canal 监控表，student 表 CONFIRM_TYPE 字段变为1，发送消息。活动ID：" + activityId);
 
                     }
